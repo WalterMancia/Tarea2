@@ -1,0 +1,3516 @@
+{
+  "version": "2.6.2",
+  "summary": {
+    "title": "Modelo de Amenazas - E-Commerce Platform",
+    "owner": "Walter Mancia",
+    "description": "Modelo de amenazas STRIDE de la plataforma E-Commerce (React, Express, MySQL, Stripe, Cloudinary). Tarea de Seguridad en Aplicaciones, UMG.",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [
+      {
+        "cells": [
+          {
+            "position": {
+              "x": 400,
+              "y": 120
+            },
+            "size": {
+              "width": 260,
+              "height": 260
+            },
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "id": "40922aaf-2880-482f-b7cb-026c120d01df",
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "TB Plataforma (servidor)",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 40,
+              "y": 100
+            },
+            "size": {
+              "width": 160,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "EE1 Cliente"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "actor",
+            "zIndex": 1,
+            "id": "5df591fa-e363-4e45-ab66-56b9ae969f1a",
+            "data": {
+              "name": "EE1 Cliente",
+              "description": "Usuario final que navega y compra.",
+              "type": "tm.Actor",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "providesAuthentication": false
+            }
+          },
+          {
+            "position": {
+              "x": 40,
+              "y": 320
+            },
+            "size": {
+              "width": 160,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "EE2 Administrador"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "actor",
+            "zIndex": 2,
+            "id": "896f6db2-9ae2-4abe-97e8-2527a6ee537d",
+            "data": {
+              "name": "EE2 Administrador",
+              "description": "Gestiona catálogo e imágenes.",
+              "type": "tm.Actor",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "providesAuthentication": false
+            }
+          },
+          {
+            "position": {
+              "x": 480,
+              "y": 200
+            },
+            "size": {
+              "width": 100,
+              "height": 100
+            },
+            "attrs": {
+              "text": {
+                "text": "Plataforma\nE-Commerce"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "process",
+            "zIndex": 3,
+            "id": "be52e7c5-e06d-4eaa-944b-faa7c6704add",
+            "data": {
+              "name": "Plataforma\nE-Commerce",
+              "description": "SPA, API REST y base de datos.",
+              "type": "tm.Process",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "privilegeLevel": ""
+            }
+          },
+          {
+            "position": {
+              "x": 820,
+              "y": 100
+            },
+            "size": {
+              "width": 160,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "EE3 Stripe"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "actor",
+            "zIndex": 4,
+            "id": "54ec3594-31c5-4a20-b2eb-11a110c7aa46",
+            "data": {
+              "name": "EE3 Stripe",
+              "description": "Pasarela de pagos (tercero).",
+              "type": "tm.Actor",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "providesAuthentication": false
+            }
+          },
+          {
+            "position": {
+              "x": 820,
+              "y": 320
+            },
+            "size": {
+              "width": 160,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "EE4 Cloudinary"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "actor",
+            "zIndex": 5,
+            "id": "0431472b-7fb7-4b84-a0f1-74d4b67e0415",
+            "data": {
+              "name": "EE4 Cloudinary",
+              "description": "Almacén de imágenes (tercero).",
+              "type": "tm.Actor",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "providesAuthentication": false
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Navegación y compras",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTP",
+              "isEncrypted": false,
+              "isPublicNetwork": true,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "584860f8-c5d3-4156-b349-979e900cf51c",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Navegación y compras"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "5df591fa-e363-4e45-ab66-56b9ae969f1a"
+            },
+            "target": {
+              "cell": "be52e7c5-e06d-4eaa-944b-faa7c6704add"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Gestión de catálogo",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTP",
+              "isEncrypted": false,
+              "isPublicNetwork": true,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "8b5e32f7-3c34-4141-95e1-dedd64ebd656",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Gestión de catálogo"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "896f6db2-9ae2-4abe-97e8-2527a6ee537d"
+            },
+            "target": {
+              "cell": "be52e7c5-e06d-4eaa-944b-faa7c6704add"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Solicitud de pago",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "2c0e210a-0b7b-4353-ac8d-49b28b85cc33",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Solicitud de pago"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "be52e7c5-e06d-4eaa-944b-faa7c6704add"
+            },
+            "target": {
+              "cell": "54ec3594-31c5-4a20-b2eb-11a110c7aa46"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Confirmación de pago (webhook)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "722900a1-17c9-4657-bc4a-51798f296163",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Confirmación de pago (webhook)"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "54ec3594-31c5-4a20-b2eb-11a110c7aa46"
+            },
+            "target": {
+              "cell": "be52e7c5-e06d-4eaa-944b-faa7c6704add"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Subida de imágenes",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "959887cb-0a42-4360-9a32-1230ac9f7478",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Subida de imágenes"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "be52e7c5-e06d-4eaa-944b-faa7c6704add"
+            },
+            "target": {
+              "cell": "0431472b-7fb7-4b84-a0f1-74d4b67e0415"
+            },
+            "vertices": []
+          }
+        ],
+        "version": "2.0",
+        "title": "DFD Nivel 0 - Contexto",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "diagramType": "STRIDE",
+        "id": 0
+      },
+      {
+        "cells": [
+          {
+            "position": {
+              "x": 200,
+              "y": 40
+            },
+            "size": {
+              "width": 300,
+              "height": 620
+            },
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "id": "21703ed4-60f1-48b4-a2fe-59adda1b4dbd",
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "TB1 Navegador del usuario",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 560,
+              "y": 40
+            },
+            "size": {
+              "width": 660,
+              "height": 820
+            },
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "id": "0cd3544d-84a1-4757-9ea2-ac9a6aa43cb2",
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "TB2 Host Docker (Internet a servidor)",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 600,
+              "y": 610
+            },
+            "size": {
+              "width": 580,
+              "height": 220
+            },
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "id": "f426c460-11f0-4c01-bc64-8532bcf339b0",
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "TB3 Zona de datos (API a BD)",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 1260,
+              "y": 40
+            },
+            "size": {
+              "width": 300,
+              "height": 620
+            },
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "id": "5e8ece29-907c-45e0-a8ff-e9a591400323",
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "TB4 Terceros SaaS",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 20,
+              "y": 100
+            },
+            "size": {
+              "width": 160,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "EE1 Cliente"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "actor",
+            "zIndex": 1,
+            "id": "98e18b04-cd55-4c60-b744-ee1e38d3cf88",
+            "data": {
+              "name": "EE1 Cliente",
+              "description": "",
+              "type": "tm.Actor",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "providesAuthentication": false
+            }
+          },
+          {
+            "position": {
+              "x": 20,
+              "y": 300
+            },
+            "size": {
+              "width": 160,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "EE2 Administrador"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 3,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "actor",
+            "zIndex": 2,
+            "id": "5bf0c346-59c1-49a6-ab88-55d99f546b72",
+            "data": {
+              "name": "EE2 Administrador",
+              "description": "Cuenta con rol admin.",
+              "type": "tm.Actor",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "mitigation": "MFA TOTP obligatorio, sesiones cortas para admin, auditoría de cambios.",
+                  "description": "El administrador autentica solo con contraseña; su compromiso da control del catálogo y precios. Nivel de riesgo: Alto (puntaje 8). Categorías STRIDE: S, E. Evidencia: auth.service.js, product.routes.js.",
+                  "title": "T23 [Alto] Cuenta admin sin MFA",
+                  "type": "Spoofing",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 23,
+                  "score": "",
+                  "id": "8e4b2237-1151-420b-815b-97a70174f009"
+                }
+              ],
+              "hasOpenThreats": true,
+              "providesAuthentication": false
+            }
+          },
+          {
+            "position": {
+              "x": 300,
+              "y": 150
+            },
+            "size": {
+              "width": 100,
+              "height": 100
+            },
+            "attrs": {
+              "text": {
+                "text": "P1\nSPA React"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "process",
+            "zIndex": 3,
+            "id": "37ddb3d4-144e-41ad-a66f-f4ba4fcf4542",
+            "data": {
+              "name": "P1\nSPA React",
+              "description": "Aplicación React + Zustand en el navegador.",
+              "type": "tm.Process",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "privilegeLevel": ""
+            }
+          },
+          {
+            "position": {
+              "x": 270,
+              "y": 400
+            },
+            "size": {
+              "width": 160,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "DS2 localStorage"
+              },
+              "topLine": {
+                "stroke": "red",
+                "strokeWidth": 3,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "red",
+                "strokeWidth": 3,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "store",
+            "zIndex": 4,
+            "id": "9b975dc3-5392-4216-a21b-f9e3a4cc8f9a",
+            "data": {
+              "name": "DS2 localStorage",
+              "description": "Almacena access y refresh token.",
+              "type": "tm.Store",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "mitigation": "CSP estricta, tokens en cookie HttpOnly + SameSite, sanitización de entradas.",
+                  "description": "Access y refresh token se guardan en localStorage; un XSS o dependencia comprometida los exfiltra. No hay CSP ni cabeceras de seguridad. Nivel de riesgo: Alto (puntaje 6). Categorías STRIDE: I, S. Evidencia: api.js, authStore.js, nginx.conf.",
+                  "title": "T03 [Alto] Tokens en localStorage sin CSP",
+                  "type": "Information disclosure",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": "",
+                  "id": "afe27c03-9cf4-45b0-858f-ce38ff6e806c"
+                }
+              ],
+              "hasOpenThreats": true,
+              "isALog": false,
+              "storesCredentials": true,
+              "isEncrypted": false,
+              "isSigned": false
+            }
+          },
+          {
+            "position": {
+              "x": 590,
+              "y": 90
+            },
+            "size": {
+              "width": 100,
+              "height": 100
+            },
+            "attrs": {
+              "text": {
+                "text": "P2\nNginx"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 3,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "process",
+            "zIndex": 5,
+            "id": "14eca109-b810-499a-9da5-cfeae8f4738f",
+            "data": {
+              "name": "P2\nNginx",
+              "description": "Sirve la SPA por HTTP (puerto 80).",
+              "type": "tm.Process",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "mitigation": "TLS 1.2+ en Nginx y API, HSTS, redirección 80 a 443.",
+                  "description": "Nginx escucha solo en el puerto 80 y la API en el 3000 sin TLS: credenciales y tokens viajan en claro. Nivel de riesgo: Crítico (puntaje 9). Categorías STRIDE: I, T. Evidencia: nginx.conf, docker-compose.yml.",
+                  "title": "T05 [Crítico] Tráfico sin TLS",
+                  "type": "Information disclosure",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": "",
+                  "id": "ee4d8120-e6a3-475d-836a-be6a6340baae"
+                }
+              ],
+              "hasOpenThreats": true,
+              "privilegeLevel": ""
+            }
+          },
+          {
+            "position": {
+              "x": 770,
+              "y": 90
+            },
+            "size": {
+              "width": 100,
+              "height": 100
+            },
+            "attrs": {
+              "text": {
+                "text": "P3\nAutenticación"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 3,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "process",
+            "zIndex": 6,
+            "id": "a241f1e6-ccc7-47e7-8de4-5199b47de685",
+            "data": {
+              "name": "P3\nAutenticación",
+              "description": "/auth: register, login, refresh-token, me.",
+              "type": "tm.Process",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "mitigation": "express-rate-limit por IP y por cuenta, bloqueo progresivo, captcha, MFA y alertas por picos de 401.",
+                  "description": "No hay límite de intentos ni bloqueo en /auth/login, /auth/register y /auth/refresh-token: fuerza bruta, credential stuffing y saturación de CPU (bcrypt). Nivel de riesgo: Crítico (puntaje 12). Categorías STRIDE: S, D. Evidencia: app.js, auth.routes.js.",
+                  "title": "T01 [Crítico] Sin rate limiting en autenticación",
+                  "type": "Spoofing",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 1,
+                  "score": "",
+                  "id": "03246d3e-580d-4d50-a7bc-81ae1830324a"
+                },
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "mitigation": "Rotación con detección de reuso, almacenamiento revocable, validar is_active y estado de la cuenta.",
+                  "description": "Refresh token de 7 días sin rotación, sin lista de revocación ni logout en servidor; refreshTokenService no valida is_active. Nivel de riesgo: Alto (puntaje 6). Categorías STRIDE: S, E, R. Evidencia: auth.service.js, jwt.utils.js.",
+                  "title": "T04 [Alto] Refresh token sin rotación ni revocación",
+                  "type": "Spoofing",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
+                  "score": "",
+                  "id": "1fd1a9bf-431b-4716-8ab5-12164615726c"
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "mitigation": "Respuesta genérica y verificación por correo.",
+                  "description": "El registro responde 409 indicando que el correo ya existe. Nivel de riesgo: Medio (puntaje 4). Categorías STRIDE: I. Evidencia: auth.service.js.",
+                  "title": "T15 [Medio] Enumeración de usuarios en registro",
+                  "type": "Information disclosure",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 15,
+                  "score": "",
+                  "id": "a6d046d5-3207-4d85-a61f-89560e090ed6"
+                },
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "mitigation": "express-validator: email válido, contraseña 12 a 72 caracteres, límites de body.",
+                  "description": "Sin política de contraseña, longitud máxima ni formato; contraseñas enormes consumen CPU en bcrypt. Nivel de riesgo: Alto (puntaje 6). Categorías STRIDE: S, D. Evidencia: auth.routes.js, auth.controller.js.",
+                  "title": "T19 [Alto] Sin validación de entrada en autenticación",
+                  "type": "Spoofing",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 19,
+                  "score": "",
+                  "id": "fe618fe9-4ff8-45eb-9096-76908825cc1d"
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "mitigation": "algorithms: [HS256], iss y aud; revalidar estado de usuario en rutas sensibles.",
+                  "description": "jwt.verify no fija algoritmos y el rol del token no se revalida contra la BD durante 15 min. Nivel de riesgo: Medio (puntaje 3). Categorías STRIDE: E. Evidencia: jwt.utils.js, auth.middleware.js.",
+                  "title": "T20 [Medio] JWT sin algoritmo, iss ni aud fijados",
+                  "type": "Elevation of privilege",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 20,
+                  "score": "",
+                  "id": "fc8ac35d-177c-466b-a621-ec259b58d0b9"
+                }
+              ],
+              "hasOpenThreats": true,
+              "privilegeLevel": ""
+            }
+          },
+          {
+            "position": {
+              "x": 950,
+              "y": 90
+            },
+            "size": {
+              "width": 100,
+              "height": 100
+            },
+            "attrs": {
+              "text": {
+                "text": "P4\nCatálogo"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 3,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "process",
+            "zIndex": 7,
+            "id": "2cded31d-0903-4f66-81e2-ffeeb7cf17dc",
+            "data": {
+              "name": "P4\nCatálogo",
+              "description": "/products y /categories (público).",
+              "type": "tm.Process",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "mitigation": "Filtrar is_active en findProductById público.",
+                  "description": "GET /products/id/:id no filtra is_active y devuelve productos eliminados lógicamente. Nivel de riesgo: Medio (puntaje 3). Categorías STRIDE: I. Evidencia: product.routes.js, product.repository.js.",
+                  "title": "T16 [Medio] Productos inactivos expuestos",
+                  "type": "Information disclosure",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 16,
+                  "score": "",
+                  "id": "f0174b53-97ad-4f07-af94-11aeae27733c"
+                },
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "mitigation": "Tope de limit (p. ej. 50), índice, caché y rate limiting.",
+                  "description": "limit no tiene máximo y la búsqueda LIKE %x% no usa índice. Nivel de riesgo: Alto (puntaje 6). Categorías STRIDE: D. Evidencia: product.service.js, product.repository.js.",
+                  "title": "T18 [Alto] Paginación sin tope y búsqueda LIKE",
+                  "type": "Denial of service",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 18,
+                  "score": "",
+                  "id": "3f3ff1bb-b316-4ad9-9038-9326e84603f6"
+                }
+              ],
+              "hasOpenThreats": true,
+              "privilegeLevel": ""
+            }
+          },
+          {
+            "position": {
+              "x": 770,
+              "y": 250
+            },
+            "size": {
+              "width": 100,
+              "height": 100
+            },
+            "attrs": {
+              "text": {
+                "text": "P5\nCarrito"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 3,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "process",
+            "zIndex": 8,
+            "id": "eee87c22-82d9-4743-bcd0-394befc175cc",
+            "data": {
+              "name": "P5\nCarrito",
+              "description": "/cart (autenticado).",
+              "type": "tm.Process",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "mitigation": "Validar quantity entero >= 1 con tope; CHECK en BD; verificar total > 0 antes de crear la orden.",
+                  "description": "quantity se acepta sin validar (negativos, no enteros). En checkout, stock - (-N) aumenta el stock y el total puede reducirse al compensar con un artículo caro. Nivel de riesgo: Crítico (puntaje 9). Categorías STRIDE: T. Evidencia: cart.service.js, order.service.js, CartItem.js.",
+                  "title": "T02 [Crítico] Cantidades negativas o no validadas en carrito",
+                  "type": "Tampering",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": "",
+                  "id": "844c9578-b9c0-4222-bbeb-766bdfa689dc"
+                }
+              ],
+              "hasOpenThreats": true,
+              "privilegeLevel": ""
+            }
+          },
+          {
+            "position": {
+              "x": 950,
+              "y": 250
+            },
+            "size": {
+              "width": 100,
+              "height": 100
+            },
+            "attrs": {
+              "text": {
+                "text": "P6\nÓrdenes"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "process",
+            "zIndex": 9,
+            "id": "36b97cd1-7ecc-4ed4-9fcf-4ae8ea25a345",
+            "data": {
+              "name": "P6\nÓrdenes",
+              "description": "/orders/checkout. Detalle en Nivel 2.",
+              "type": "tm.Process",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "privilegeLevel": ""
+            }
+          },
+          {
+            "position": {
+              "x": 770,
+              "y": 410
+            },
+            "size": {
+              "width": 100,
+              "height": 100
+            },
+            "attrs": {
+              "text": {
+                "text": "P7\nPagos"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 3,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "process",
+            "zIndex": 10,
+            "id": "0ba3a103-6c94-4e38-badf-4f19bfed0cb2",
+            "data": {
+              "name": "P7\nPagos",
+              "description": "/payments: create-intent y webhook. Detalle en Nivel 2.",
+              "type": "tm.Process",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "mitigation": "Mensajes genéricos al cliente; detalle solo en logs.",
+                  "description": "El error handler devuelve err.message y el webhook incluye el mensaje de error de Stripe. Nivel de riesgo: Medio (puntaje 4). Categorías STRIDE: I. Evidencia: error.middleware.js, payment.service.js.",
+                  "title": "T10 [Medio] Errores con detalles internos",
+                  "type": "Information disclosure",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": "",
+                  "id": "e1df213a-abd9-4fec-b5b4-f408a1ffda62"
+                }
+              ],
+              "hasOpenThreats": true,
+              "privilegeLevel": ""
+            }
+          },
+          {
+            "position": {
+              "x": 950,
+              "y": 410
+            },
+            "size": {
+              "width": 100,
+              "height": 100
+            },
+            "attrs": {
+              "text": {
+                "text": "P8\nAdmin"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 3,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "process",
+            "zIndex": 11,
+            "id": "5aefba32-8360-4756-a84e-1e281dc89d01",
+            "data": {
+              "name": "P8\nAdmin",
+              "description": "CRUD de productos y subida de imágenes (rol admin).",
+              "type": "tm.Process",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "mitigation": "Logging estructurado centralizado con usuario, IP y acción; SIEM y alertas.",
+                  "description": "Solo hay console.log. Acciones de administrador y cambios de estado de órdenes no son trazables. Nivel de riesgo: Alto (puntaje 6). Categorías STRIDE: R. Evidencia: payment.service.js, server.js.",
+                  "title": "T11 [Alto] Sin logging de seguridad ni auditoría",
+                  "type": "Repudiation",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": "",
+                  "id": "925f953e-17f4-4abd-91ab-032636a5927f"
+                },
+                {
+                  "status": "Open",
+                  "severity": "Low",
+                  "mitigation": "Lista blanca de campos permitidos.",
+                  "description": "createProduct y updateProduct aceptan campos arbitrarios (slug, is_active, image_url). Nivel de riesgo: Bajo (puntaje 2). Categorías STRIDE: T, E. Evidencia: product.service.js.",
+                  "title": "T17 [Bajo] Mass assignment en productos",
+                  "type": "Tampering",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 17,
+                  "score": "",
+                  "id": "fd2c82a5-5058-407f-86b5-36e018e1c1e9"
+                },
+                {
+                  "status": "Open",
+                  "severity": "Low",
+                  "mitigation": "Validar tipo real (magic bytes), límites y escaneo.",
+                  "description": "La validación depende del formato declarado y de Cloudinary; riesgo si la cuenta admin se compromete. Nivel de riesgo: Bajo (puntaje 2). Categorías STRIDE: T. Evidencia: cloudinary.utils.js.",
+                  "title": "T21 [Bajo] Subida de imágenes validada solo por tipo declarado",
+                  "type": "Tampering",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 21,
+                  "score": "",
+                  "id": "554778bb-327d-4d99-9806-fc5ae62f5c75"
+                }
+              ],
+              "hasOpenThreats": true,
+              "privilegeLevel": ""
+            }
+          },
+          {
+            "position": {
+              "x": 590,
+              "y": 250
+            },
+            "size": {
+              "width": 100,
+              "height": 100
+            },
+            "attrs": {
+              "text": {
+                "text": "P9\nSwagger UI"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 3,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "process",
+            "zIndex": 12,
+            "id": "716daf06-1d91-44d9-943c-5f68e73f27a0",
+            "data": {
+              "name": "P9\nSwagger UI",
+              "description": "/api/docs (componente C05).",
+              "type": "tm.Process",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "mitigation": "Deshabilitar en producción o protegerlo con autenticación.",
+                  "description": "/api/docs accesible sin autenticación y documenta todos los endpoints. Nivel de riesgo: Medio (puntaje 4). Categorías STRIDE: I. Evidencia: app.js.",
+                  "title": "T09 [Medio] Swagger expuesto en producción",
+                  "type": "Information disclosure",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": "",
+                  "id": "29165c89-bffd-42ab-87c9-3ce9adc959eb"
+                }
+              ],
+              "hasOpenThreats": true,
+              "privilegeLevel": ""
+            }
+          },
+          {
+            "position": {
+              "x": 590,
+              "y": 410
+            },
+            "size": {
+              "width": 100,
+              "height": 100
+            },
+            "attrs": {
+              "text": {
+                "text": "P10\nContenedores\ny dependencias"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 3,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "process",
+            "zIndex": 13,
+            "id": "03ce6a1f-f53f-45ee-9bf9-677dd3a40a95",
+            "data": {
+              "name": "P10\nContenedores\ny dependencias",
+              "description": "Docker Compose, imágenes y paquetes npm (C08, C09).",
+              "type": "tm.Process",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "mitigation": "USER node, escaneo de imágenes, Docker secrets o Vault, migraciones fuera del arranque.",
+                  "description": "Contenedores sin USER no root, secretos en variables de entorno, migraciones y seeders en cada arranque. Nivel de riesgo: Medio (puntaje 3). Categorías STRIDE: E. Evidencia: Dockerfile, docker-compose.yml.",
+                  "title": "T13 [Medio] Contenedores root y secretos en variables de entorno",
+                  "type": "Elevation of privilege",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 13,
+                  "score": "",
+                  "id": "1eeec3db-932b-41a1-ade9-8f6e121c6ef4"
+                },
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "mitigation": "npm audit/SCA y SAST en CI, lockfile, Dependabot, pruebas automatizadas.",
+                  "description": "Sin SCA, sin pruebas ni CI, versiones con ^ en package.json. Nivel de riesgo: Alto (puntaje 6). Categorías STRIDE: T. Evidencia: package.json.",
+                  "title": "T22 [Alto] Cadena de suministro sin controles",
+                  "type": "Tampering",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 22,
+                  "score": "",
+                  "id": "712681cf-c014-4c40-a1f5-178cb92e061e"
+                }
+              ],
+              "hasOpenThreats": true,
+              "privilegeLevel": ""
+            }
+          },
+          {
+            "position": {
+              "x": 800,
+              "y": 660
+            },
+            "size": {
+              "width": 160,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "DS1 MySQL"
+              },
+              "topLine": {
+                "stroke": "red",
+                "strokeWidth": 3,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "red",
+                "strokeWidth": 3,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "store",
+            "zIndex": 14,
+            "id": "166143d3-c3af-413a-8724-42cf4f28fb67",
+            "data": {
+              "name": "DS1 MySQL",
+              "description": "users, products, categories, carts, cart_items, orders, order_items.",
+              "type": "tm.Store",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "mitigation": "No publicar 3306, usuario de BD con mínimo privilegio, red interna Docker, TLS a la BD.",
+                  "description": "El puerto 3306 está publicado y el README usa DB_USER=root. Nivel de riesgo: Alto (puntaje 8). Categorías STRIDE: E, I, T. Evidencia: docker-compose.yml, README.",
+                  "title": "T12 [Alto] MySQL expuesto y usuario root",
+                  "type": "Elevation of privilege",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": "",
+                  "id": "a39635a8-53da-4cdc-8d69-5f7353a979bf"
+                }
+              ],
+              "hasOpenThreats": true,
+              "isALog": false,
+              "storesCredentials": true,
+              "isEncrypted": false,
+              "isSigned": false
+            }
+          },
+          {
+            "position": {
+              "x": 1330,
+              "y": 200
+            },
+            "size": {
+              "width": 160,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "EE3 Stripe"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "actor",
+            "zIndex": 15,
+            "id": "215dce3c-3152-44a0-a7b7-f47a7371b82a",
+            "data": {
+              "name": "EE3 Stripe",
+              "description": "",
+              "type": "tm.Actor",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "providesAuthentication": false
+            }
+          },
+          {
+            "position": {
+              "x": 1330,
+              "y": 420
+            },
+            "size": {
+              "width": 160,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "EE4 Cloudinary"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "actor",
+            "zIndex": 16,
+            "id": "640c1d0a-8abe-4f90-ae22-881091120a86",
+            "data": {
+              "name": "EE4 Cloudinary",
+              "description": "",
+              "type": "tm.Actor",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "providesAuthentication": false
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Interacción de usuario",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "Navegador",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "667c6184-9153-4103-92d5-c50d518f7c98",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Interacción de usuario"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "98e18b04-cd55-4c60-b744-ee1e38d3cf88"
+            },
+            "target": {
+              "cell": "37ddb3d4-144e-41ad-a66f-f4ba4fcf4542"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Gestión de catálogo",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "Navegador",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "218ffebc-1e23-4668-8ebb-20958ff3c14e",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Gestión de catálogo"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "5bf0c346-59c1-49a6-ab88-55d99f546b72"
+            },
+            "target": {
+              "cell": "37ddb3d4-144e-41ad-a66f-f4ba4fcf4542"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "F02 GET archivos estáticos",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTP",
+              "isEncrypted": false,
+              "isPublicNetwork": true,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "5dc5c6c3-4b8b-45a1-b78f-93a0edf40299",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F02 GET archivos estáticos"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "37ddb3d4-144e-41ad-a66f-f4ba4fcf4542"
+            },
+            "target": {
+              "cell": "14eca109-b810-499a-9da5-cfeae8f4738f"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "F03 Credenciales (login/registro)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTP",
+              "isEncrypted": false,
+              "isPublicNetwork": true,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "mitigation": "Lista blanca de orígenes permitidos.",
+                  "description": "cors() sin lista blanca de orígenes. Nivel de riesgo: Medio (puntaje 4). Categorías STRIDE: S, I. Evidencia: app.js.",
+                  "title": "T08 [Medio] CORS abierto",
+                  "type": "Spoofing",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": "",
+                  "id": "570fd301-40c7-4521-ab6c-04b8da3d6167"
+                }
+              ],
+              "isTrustBoundary": false
+            },
+            "id": "6e58df75-dc99-4354-a8d3-70e3583fa15c",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F03 Credenciales (login/registro)"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "37ddb3d4-144e-41ad-a66f-f4ba4fcf4542"
+            },
+            "target": {
+              "cell": "a241f1e6-ccc7-47e7-8de4-5199b47de685"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "F04 Access y refresh token",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTP",
+              "isEncrypted": false,
+              "isPublicNetwork": true,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "da60cb7b-b439-45eb-8bd8-ac0b438d9940",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F04 Access y refresh token"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "a241f1e6-ccc7-47e7-8de4-5199b47de685"
+            },
+            "target": {
+              "cell": "37ddb3d4-144e-41ad-a66f-f4ba4fcf4542"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "F05 Guardar/leer tokens",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "API del navegador",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "ec51063f-48d1-43a8-9cc9-814dca6b392b",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F05 Guardar/leer tokens"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "37ddb3d4-144e-41ad-a66f-f4ba4fcf4542"
+            },
+            "target": {
+              "cell": "9b975dc3-5392-4216-a21b-f9e3a4cc8f9a"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "F06 Usuario y hash",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "MySQL",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "34b377a3-4a65-44ac-8d62-28b72293d047",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F06 Usuario y hash"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "a241f1e6-ccc7-47e7-8de4-5199b47de685"
+            },
+            "target": {
+              "cell": "166143d3-c3af-413a-8724-42cf4f28fb67"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "F07 Consulta de catálogo",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTP",
+              "isEncrypted": false,
+              "isPublicNetwork": true,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "fe0c414d-7007-430b-8158-4a025c4aecab",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F07 Consulta de catálogo"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "37ddb3d4-144e-41ad-a66f-f4ba4fcf4542"
+            },
+            "target": {
+              "cell": "2cded31d-0903-4f66-81e2-ffeeb7cf17dc"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Consulta de productos",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "MySQL",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "84f6cc34-1151-4745-8899-4c06da4e883f",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Consulta de productos"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "2cded31d-0903-4f66-81e2-ffeeb7cf17dc"
+            },
+            "target": {
+              "cell": "166143d3-c3af-413a-8724-42cf4f28fb67"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "F08 Carrito (Bearer)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTP",
+              "isEncrypted": false,
+              "isPublicNetwork": true,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "4b6b998c-ba20-4ca8-8292-46c0688dc77a",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F08 Carrito (Bearer)"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "37ddb3d4-144e-41ad-a66f-f4ba4fcf4542"
+            },
+            "target": {
+              "cell": "eee87c22-82d9-4743-bcd0-394befc175cc"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Carrito e ítems",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "MySQL",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "249806d3-688c-4605-baf8-e507cc007f70",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Carrito e ítems"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "eee87c22-82d9-4743-bcd0-394befc175cc"
+            },
+            "target": {
+              "cell": "166143d3-c3af-413a-8724-42cf4f28fb67"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "F09 Checkout (Bearer)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTP",
+              "isEncrypted": false,
+              "isPublicNetwork": true,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "cc60d58c-e248-4a1d-bb5a-5244b715721b",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F09 Checkout (Bearer)"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "37ddb3d4-144e-41ad-a66f-f4ba4fcf4542"
+            },
+            "target": {
+              "cell": "36b97cd1-7ecc-4ed4-9fcf-4ae8ea25a345"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Orden y stock",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "MySQL",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "c9cdffec-6445-4ecb-b7fe-9e507e6c9841",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Orden y stock"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "36b97cd1-7ecc-4ed4-9fcf-4ae8ea25a345"
+            },
+            "target": {
+              "cell": "166143d3-c3af-413a-8724-42cf4f28fb67"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "F10 create-intent (orderId)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTP",
+              "isEncrypted": false,
+              "isPublicNetwork": true,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "d2db49c6-8999-48bc-b3fb-5a2865321fbb",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F10 create-intent (orderId)"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "37ddb3d4-144e-41ad-a66f-f4ba4fcf4542"
+            },
+            "target": {
+              "cell": "0ba3a103-6c94-4e38-badf-4f19bfed0cb2"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Crear PaymentIntent",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "6df77b23-9dfb-4996-a4f3-47e4775d323a",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Crear PaymentIntent"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "0ba3a103-6c94-4e38-badf-4f19bfed0cb2"
+            },
+            "target": {
+              "cell": "215dce3c-3152-44a0-a7b7-f47a7371b82a"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "F11 Datos de tarjeta (Stripe.js)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "190295dc-aa0f-4864-bdc4-37959626cffb",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F11 Datos de tarjeta (Stripe.js)"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "37ddb3d4-144e-41ad-a66f-f4ba4fcf4542"
+            },
+            "target": {
+              "cell": "215dce3c-3152-44a0-a7b7-f47a7371b82a"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "F12 Webhook firmado",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "889203fa-a4b5-453a-af50-470ccfda3ebc",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F12 Webhook firmado"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "215dce3c-3152-44a0-a7b7-f47a7371b82a"
+            },
+            "target": {
+              "cell": "0ba3a103-6c94-4e38-badf-4f19bfed0cb2"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Estado de la orden",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "MySQL",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "33f36008-8e74-49e4-a303-ccffc0ddf7ae",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Estado de la orden"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "0ba3a103-6c94-4e38-badf-4f19bfed0cb2"
+            },
+            "target": {
+              "cell": "166143d3-c3af-413a-8724-42cf4f28fb67"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "F13 CRUD productos (Bearer)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTP",
+              "isEncrypted": false,
+              "isPublicNetwork": true,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "0fa0444e-85da-4b32-a6ed-62d6215b462a",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F13 CRUD productos (Bearer)"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "37ddb3d4-144e-41ad-a66f-f4ba4fcf4542"
+            },
+            "target": {
+              "cell": "5aefba32-8360-4756-a84e-1e281dc89d01"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Escritura de catálogo",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "MySQL",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "c58dd32e-c880-4124-aa43-5aecf5671016",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Escritura de catálogo"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "5aefba32-8360-4756-a84e-1e281dc89d01"
+            },
+            "target": {
+              "cell": "166143d3-c3af-413a-8724-42cf4f28fb67"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "F14 Subida de imagen",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "f6b4c8dc-a9bb-4646-8515-cfaba5cbe4d1",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F14 Subida de imagen"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "5aefba32-8360-4756-a84e-1e281dc89d01"
+            },
+            "target": {
+              "cell": "640c1d0a-8abe-4f90-ae22-881091120a86"
+            },
+            "vertices": []
+          }
+        ],
+        "version": "2.0",
+        "title": "DFD Nivel 1 - Procesos y limites de confianza",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "diagramType": "STRIDE",
+        "id": 1
+      },
+      {
+        "cells": [
+          {
+            "position": {
+              "x": 20,
+              "y": 60
+            },
+            "size": {
+              "width": 200,
+              "height": 520
+            },
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "id": "5ced7895-5a13-42a6-a3df-41e93dbcbba1",
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "TB1 Navegador",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 260,
+              "y": 40
+            },
+            "size": {
+              "width": 900,
+              "height": 780
+            },
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "id": "fc668f02-bac8-4ada-857a-391cb0d4f1e3",
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "TB2 / TB3 API y base de datos",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 1200,
+              "y": 40
+            },
+            "size": {
+              "width": 260,
+              "height": 780
+            },
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "id": "69add9ec-235d-4306-9012-f64029da5528",
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "TB4 Stripe",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 40,
+              "y": 260
+            },
+            "size": {
+              "width": 160,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "EE1 Cliente (SPA)"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "actor",
+            "zIndex": 1,
+            "id": "f696ee3f-538f-4178-a18e-5cdcf519c3f9",
+            "data": {
+              "name": "EE1 Cliente (SPA)",
+              "description": "SPA autenticada con Bearer.",
+              "type": "tm.Actor",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "providesAuthentication": false
+            }
+          },
+          {
+            "position": {
+              "x": 300,
+              "y": 90
+            },
+            "size": {
+              "width": 100,
+              "height": 100
+            },
+            "attrs": {
+              "text": {
+                "text": "P6.1\nLeer carrito"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "process",
+            "zIndex": 2,
+            "id": "f1572183-ff59-46d4-a40f-7b259a8f2621",
+            "data": {
+              "name": "P6.1\nLeer carrito",
+              "description": "Obtiene el carrito del userId del JWT.",
+              "type": "tm.Process",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "privilegeLevel": ""
+            }
+          },
+          {
+            "position": {
+              "x": 480,
+              "y": 90
+            },
+            "size": {
+              "width": 100,
+              "height": 100
+            },
+            "attrs": {
+              "text": {
+                "text": "P6.2\nVerificar stock"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 3,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "process",
+            "zIndex": 3,
+            "id": "7c336afe-ea8f-4b5e-a031-96e82b893acd",
+            "data": {
+              "name": "P6.2\nVerificar stock",
+              "description": "Lee stock por ítem, fuera de la transacción.",
+              "type": "tm.Process",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "mitigation": "SELECT ... FOR UPDATE o decremento atómico condicional; CHECK stock >= 0.",
+                  "description": "La verificación de stock se hace fuera de la transacción y el descuento es lectura-modificación-escritura sin bloqueo: sobreventa. Nivel de riesgo: Alto (puntaje 6). Categorías STRIDE: T. Evidencia: order.service.js.",
+                  "title": "T06 [Alto] Condición de carrera en stock del checkout",
+                  "type": "Tampering",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": "",
+                  "id": "245bc6d3-5008-4d87-82fa-54f26db197d5"
+                }
+              ],
+              "hasOpenThreats": true,
+              "privilegeLevel": ""
+            }
+          },
+          {
+            "position": {
+              "x": 660,
+              "y": 90
+            },
+            "size": {
+              "width": 100,
+              "height": 100
+            },
+            "attrs": {
+              "text": {
+                "text": "P6.3\nCalcular total"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "process",
+            "zIndex": 4,
+            "id": "b23b0644-a917-4411-a805-83aa88c2fcc8",
+            "data": {
+              "name": "P6.3\nCalcular total",
+              "description": "Usa el precio de BD y la cantidad del carrito.",
+              "type": "tm.Process",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "privilegeLevel": ""
+            }
+          },
+          {
+            "position": {
+              "x": 840,
+              "y": 90
+            },
+            "size": {
+              "width": 100,
+              "height": 100
+            },
+            "attrs": {
+              "text": {
+                "text": "P6.4\nTransacción\nde orden"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 3,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "process",
+            "zIndex": 5,
+            "id": "9b289094-fb5f-4e68-a096-81b70a28eb35",
+            "data": {
+              "name": "P6.4\nTransacción\nde orden",
+              "description": "Crea orden, descuenta stock; clearCart queda fuera.",
+              "type": "tm.Process",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "mitigation": "Expiración de órdenes pendientes con reposición de stock; límite de órdenes pendientes por usuario.",
+                  "description": "El checkout descuenta stock sin pago y las órdenes pending no expiran; payment_failed cancela sin reponer stock. Nivel de riesgo: Alto (puntaje 6). Categorías STRIDE: D. Evidencia: order.service.js, payment.service.js.",
+                  "title": "T07 [Alto] Stock retenido por órdenes pendientes",
+                  "type": "Denial of service",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
+                  "score": "",
+                  "id": "c9dcaab8-05a0-4b73-85fd-f0e0f48835b7"
+                }
+              ],
+              "hasOpenThreats": true,
+              "privilegeLevel": ""
+            }
+          },
+          {
+            "position": {
+              "x": 300,
+              "y": 420
+            },
+            "size": {
+              "width": 100,
+              "height": 100
+            },
+            "attrs": {
+              "text": {
+                "text": "P7.1\nPaymentIntent"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "process",
+            "zIndex": 6,
+            "id": "c8c0ac48-b805-4828-82e3-d2520d355959",
+            "data": {
+              "name": "P7.1\nPaymentIntent",
+              "description": "Crea o reutiliza PaymentIntent con idempotencyKey.",
+              "type": "tm.Process",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "privilegeLevel": ""
+            }
+          },
+          {
+            "position": {
+              "x": 700,
+              "y": 420
+            },
+            "size": {
+              "width": 100,
+              "height": 100
+            },
+            "attrs": {
+              "text": {
+                "text": "P7.2\nVerificar\nfirma webhook"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "process",
+            "zIndex": 7,
+            "id": "2cf63bc6-39cb-4d0a-95a9-2fdf89d4b03f",
+            "data": {
+              "name": "P7.2\nVerificar\nfirma webhook",
+              "description": "stripe.webhooks.constructEvent con el secret.",
+              "type": "tm.Process",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "privilegeLevel": ""
+            }
+          },
+          {
+            "position": {
+              "x": 900,
+              "y": 420
+            },
+            "size": {
+              "width": 100,
+              "height": 100
+            },
+            "attrs": {
+              "text": {
+                "text": "P7.3\nActualizar\nestado orden"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 3,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "process",
+            "zIndex": 8,
+            "id": "5ebfe96b-4ae9-4afa-8336-4b57f40491af",
+            "data": {
+              "name": "P7.3\nActualizar\nestado orden",
+              "description": "Marca paid o cancelled por stripe_payment_id.",
+              "type": "tm.Process",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "mitigation": "Idempotencia por event.id, validar estado y monto, rate limiting.",
+                  "description": "El webhook no deduplica por event.id, no valida estado previo ni monto, y es un endpoint público sin límites. Nivel de riesgo: Medio (puntaje 3). Categorías STRIDE: T, D. Evidencia: payment.service.js, app.js.",
+                  "title": "T14 [Medio] Webhook sin idempotencia ni validación de estado/monto",
+                  "type": "Tampering",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 14,
+                  "score": "",
+                  "id": "946468e0-65b6-4a69-835b-eb799cfb123e"
+                }
+              ],
+              "hasOpenThreats": true,
+              "privilegeLevel": ""
+            }
+          },
+          {
+            "position": {
+              "x": 600,
+              "y": 680
+            },
+            "size": {
+              "width": 160,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "DS1 MySQL"
+              },
+              "topLine": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "store",
+            "zIndex": 9,
+            "id": "adce4b17-7144-4839-a2d6-36b9706f80b6",
+            "data": {
+              "name": "DS1 MySQL",
+              "description": "Tablas carts, products, orders, order_items.",
+              "type": "tm.Store",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "isALog": false,
+              "storesCredentials": false,
+              "isEncrypted": false,
+              "isSigned": false
+            }
+          },
+          {
+            "position": {
+              "x": 1260,
+              "y": 300
+            },
+            "size": {
+              "width": 160,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "EE3 Stripe"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "shape": "actor",
+            "zIndex": 10,
+            "id": "49a7e409-e3a4-487a-9e34-1d09a2d7565e",
+            "data": {
+              "name": "EE3 Stripe",
+              "description": "",
+              "type": "tm.Actor",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "providesAuthentication": false
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "F09 Solicitud de checkout (Bearer)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTP",
+              "isEncrypted": false,
+              "isPublicNetwork": true,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "2721ac18-63be-4836-a2c6-58b0e61f4fc4",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F09 Solicitud de checkout (Bearer)"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "f696ee3f-538f-4178-a18e-5cdcf519c3f9"
+            },
+            "target": {
+              "cell": "f1572183-ff59-46d4-a40f-7b259a8f2621"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Leer carrito",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "MySQL",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "1d34d823-e313-491e-a808-368b155467e4",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Leer carrito"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "f1572183-ff59-46d4-a40f-7b259a8f2621"
+            },
+            "target": {
+              "cell": "adce4b17-7144-4839-a2d6-36b9706f80b6"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Ítems del carrito",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "Interno",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "be4d6276-483c-4dec-90df-fc23e160cd68",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Ítems del carrito"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "f1572183-ff59-46d4-a40f-7b259a8f2621"
+            },
+            "target": {
+              "cell": "7c336afe-ea8f-4b5e-a031-96e82b893acd"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Leer stock",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "MySQL",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "146c774c-2fe5-4d0e-84be-f55957fb2f85",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Leer stock"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "7c336afe-ea8f-4b5e-a031-96e82b893acd"
+            },
+            "target": {
+              "cell": "adce4b17-7144-4839-a2d6-36b9706f80b6"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Ítems verificados",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "Interno",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "d69340d0-9c17-4da2-ab18-896407e2ef39",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Ítems verificados"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "7c336afe-ea8f-4b5e-a031-96e82b893acd"
+            },
+            "target": {
+              "cell": "b23b0644-a917-4411-a805-83aa88c2fcc8"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Total y líneas",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "Interno",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "f2cb26a6-f46d-423d-9f38-745ace64636d",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Total y líneas"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "b23b0644-a917-4411-a805-83aa88c2fcc8"
+            },
+            "target": {
+              "cell": "9b289094-fb5f-4e68-a096-81b70a28eb35"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Crear orden y descontar stock",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "MySQL",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "c1927a42-0521-429f-bb73-7e38fc5934c7",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Crear orden y descontar stock"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "9b289094-fb5f-4e68-a096-81b70a28eb35"
+            },
+            "target": {
+              "cell": "adce4b17-7144-4839-a2d6-36b9706f80b6"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Orden pendiente",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTP",
+              "isEncrypted": false,
+              "isPublicNetwork": true,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "27adaa91-30cf-4efe-b9cf-996370700ac6",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Orden pendiente"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "9b289094-fb5f-4e68-a096-81b70a28eb35"
+            },
+            "target": {
+              "cell": "f696ee3f-538f-4178-a18e-5cdcf519c3f9"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "F10 create-intent (orderId)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTP",
+              "isEncrypted": false,
+              "isPublicNetwork": true,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "0a6b06ca-199a-421b-9f4d-c79b0ab9d646",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F10 create-intent (orderId)"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "f696ee3f-538f-4178-a18e-5cdcf519c3f9"
+            },
+            "target": {
+              "cell": "c8c0ac48-b805-4828-82e3-d2520d355959"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Leer orden / guardar payment id",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "MySQL",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "c517c2b2-2cf1-4711-9da6-fd28537d0b04",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Leer orden / guardar payment id"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "c8c0ac48-b805-4828-82e3-d2520d355959"
+            },
+            "target": {
+              "cell": "adce4b17-7144-4839-a2d6-36b9706f80b6"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Crear PaymentIntent",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "8d691436-84df-487f-8808-f4034088ea07",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Crear PaymentIntent"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "c8c0ac48-b805-4828-82e3-d2520d355959"
+            },
+            "target": {
+              "cell": "49a7e409-e3a4-487a-9e34-1d09a2d7565e"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "F12 Webhook firmado",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "4ab82a24-f0f8-4807-af37-8bb7cb2f4f43",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "F12 Webhook firmado"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "49a7e409-e3a4-487a-9e34-1d09a2d7565e"
+            },
+            "target": {
+              "cell": "2cf63bc6-39cb-4d0a-95a9-2fdf89d4b03f"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Evento verificado",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "Interno",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "5f93887d-8e03-4ab6-8d71-d1df203d485b",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Evento verificado"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "2cf63bc6-39cb-4d0a-95a9-2fdf89d4b03f"
+            },
+            "target": {
+              "cell": "5ebfe96b-4ae9-4afa-8336-4b57f40491af"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Actualizar estado de orden",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "MySQL",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "cf8ddc50-4c0a-454c-95e4-f01e582fd573",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Actualizar estado de orden"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "5ebfe96b-4ae9-4afa-8336-4b57f40491af"
+            },
+            "target": {
+              "cell": "adce4b17-7144-4839-a2d6-36b9706f80b6"
+            },
+            "vertices": []
+          }
+        ],
+        "version": "2.0",
+        "title": "DFD Nivel 2 - Checkout y pago",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "diagramType": "STRIDE",
+        "id": 2
+      }
+    ],
+    "diagramTop": 3,
+    "reviewer": "Cesar Minas",
+    "threatTop": 23
+  }
+}
