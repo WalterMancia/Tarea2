@@ -78,7 +78,7 @@ El archivo `.json` es el artefacto oficial del modelo y se mantiene bajo control
 
 | Versión | Fecha | Cambios |
 |---|---|---|
-| 1.0 | [fecha] | Modelo inicial: 3 DFD, 4 límites de confianza y 23 amenazas STRIDE |
+| 1.0 | [09-10-2026] | Modelo inicial: 3 DFD, 4 límites de confianza y 23 amenazas STRIDE |
 
 ## Licencia y uso
 
